@@ -2052,7 +2052,7 @@ function block_noteRoutineEnd(snapshot) {
     block_later = true;
     block_one = false;
     block_note_text_msg = (("Congrats. You completed block " + block_num.toString()) + 
-        " of 10. Feel free to relax for a moment. And remember: \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger\n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.");
+        " of 10. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.");
     
     
     
