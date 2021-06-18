@@ -184,7 +184,7 @@ function experimentInit() {
     ori : 0, pos : undefined, size : [0.1, 0.1],
     color : new util.Color([1, 1, 1]), opacity : 1,
     flipHoriz : false, flipVert : false,
-    texRes : 128, interpolate : true, depth : -1.0 
+    texRes : 512, interpolate : true, depth : -1.0 
   });
   trial_resp_simon = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -359,7 +359,7 @@ function experimentInit() {
     ori : 0, pos : undefined, size : [0.1, 0.1],
     color : new util.Color([1, 1, 1]), opacity : 1,
     flipHoriz : false, flipVert : false,
-    texRes : 128, interpolate : true, depth : -5.0 
+    texRes : 512, interpolate : true, depth : -5.0 
   });
   trial_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -723,7 +723,6 @@ function trial_train_simonRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    target_simon.setImage(target_file);
     trial_resp_simon.keys = undefined;
     trial_resp_simon.rt = undefined;
     _trial_resp_simon_allKeys = [];
@@ -801,6 +800,10 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       target_simon.setAutoDraw(true);
     }
 
+    
+    if (target_simon.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      target_simon.setImage(target_file, false);
+    }
     
     // *trial_resp_simon* updates
     if (t >= 0 && trial_resp_simon.status === PsychoJS.Status.NOT_STARTED) {
@@ -1555,7 +1558,6 @@ function trialRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    target.setImage(target_file);
     trial_resp.keys = undefined;
     trial_resp.rt = undefined;
     _trial_resp_allKeys = [];
@@ -1692,6 +1694,10 @@ function trialRoutineEachFrame(snapshot) {
       target.setAutoDraw(true);
     }
 
+    
+    if (target.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      target.setImage(target_file, false);
+    }
     
     // *trial_resp* updates
     if (t >= 1 && trial_resp.status === PsychoJS.Status.NOT_STARTED) {
