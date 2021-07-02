@@ -31,6 +31,8 @@ let expName = 'arrow_simon_norep';  // from the Builder filename that created th
 let expInfo = {'participant': '', 'session': '001'};
 
 // Start code blocks for 'Before Experiment'
+blue = '#a3d0fb';
+orange = '#f3af84';
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
   dictionary: expInfo,
@@ -175,7 +177,7 @@ function experimentInit() {
     font: 'Arial',
     units: undefined, 
     pos: [0, 0.05], height: 0.02,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
   
@@ -183,8 +185,8 @@ function experimentInit() {
     win: psychoJS.window, name: 'fixation_simon', 
     vertices: 'cross', size:[0.05, 0.05],
     ori: 0, pos: [0, 0],
-    lineWidth: 1, lineColor: new util.Color([(- 1), (- 1), (- 1)]),
-    fillColor: new util.Color([(- 1), (- 1), (- 1)]),
+    lineWidth: 1, lineColor: new util.Color('white'),
+    fillColor: new util.Color('white'),
     opacity: 1, depth: -1, interpolate: true,
   });
   
@@ -195,7 +197,7 @@ function experimentInit() {
     ori : 0, pos : undefined, size : [0.1, 0.1],
     color : new util.Color([1, 1, 1]), opacity : 1,
     flipHoriz : false, flipVert : false,
-    texRes : 512, interpolate : true, depth : -1.0 
+    texRes : 512, interpolate : true, depth : -2.0 
   });
   trial_resp_simon = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -314,7 +316,7 @@ function experimentInit() {
     font: 'Arial',
     units: undefined, 
     pos: [0, 0.1], height: 0.02,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
   
@@ -322,8 +324,8 @@ function experimentInit() {
     win: psychoJS.window, name: 'fixation', 
     vertices: 'cross', size:[0.05, 0.05],
     ori: 0, pos: [0, 0],
-    lineWidth: 1, lineColor: new util.Color([(- 1), (- 1), (- 1)]),
-    fillColor: new util.Color([(- 1), (- 1), (- 1)]),
+    lineWidth: 1, lineColor: new util.Color('white'),
+    fillColor: new util.Color('white'),
     opacity: 1, depth: -1, interpolate: true,
   });
   
@@ -370,7 +372,7 @@ function experimentInit() {
     ori : 0, pos : undefined, size : [0.1, 0.1],
     color : new util.Color([1, 1, 1]), opacity : 1,
     flipHoriz : false, flipVert : false,
-    texRes : 512, interpolate : true, depth : -5.0 
+    texRes : 512, interpolate : true, depth : -6.0 
   });
   trial_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -719,6 +721,7 @@ var _trial_resp_simon_allKeys;
 var target_onset;
 var target_resp;
 var target_file;
+var target_color;
 var finger_text;
 var trial_train_simonComponents;
 function trial_train_simonRoutineBegin(snapshot) {
@@ -738,10 +741,12 @@ function trial_train_simonRoutineBegin(snapshot) {
     if (train_trial_num % 2 === 0) {
         target_resp = even_target_resp;
         target_file = even_target_file;
+        target_color = orange;
         finger_text = 'MIDDLE';
     } else {
         target_resp = odd_target_resp;
         target_file = odd_target_file; 
+        target_color = blue;
         finger_text = 'POINTER';
     }
     // keep track of which components have finished
@@ -783,6 +788,7 @@ function trial_train_simonRoutineEachFrame(snapshot) {
     }
     
     if (train_trial_finger.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      train_trial_finger.setColor(new util.Color(target_color), false);
       train_trial_finger.setText(finger_text, false);
     }
     
@@ -795,6 +801,11 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       fixation_simon.setAutoDraw(true);
     }
 
+    
+    if (fixation_simon.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      fixation_simon.setFillColor(new util.Color(target_color), false);
+      fixation_simon.setLineColor(new util.Color(target_color), false);
+    }
     
     // *target_simon* updates
     if (t >= target_onset && target_simon.status === PsychoJS.Status.NOT_STARTED) {
@@ -1564,13 +1575,15 @@ function trialRoutineBegin(snapshot) {
     target.setPos(eval(target_pos));
     target_onset = Math.random() + 1.5;
     
-    if (trial_num % 2 === 0) {
+    if (train_trial_num % 2 === 0) {
         target_resp = even_target_resp;
         target_file = even_target_file;
+        target_color = orange;
         finger_text = 'MIDDLE';
     } else {
         target_resp = odd_target_resp;
         target_file = odd_target_file; 
+        target_color = blue;
         finger_text = 'POINTER';
     }
     // keep track of which components have finished
@@ -1615,6 +1628,7 @@ function trialRoutineEachFrame(snapshot) {
     }
     
     if (trial_finger.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      trial_finger.setColor(new util.Color(target_color), false);
       trial_finger.setText(finger_text, false);
     }
     
@@ -1630,6 +1644,11 @@ function trialRoutineEachFrame(snapshot) {
     frameRemains = 0 + 0.6 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (fixation.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       fixation.setAutoDraw(false);
+    }
+    
+    if (fixation.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      fixation.setFillColor(new util.Color(target_color), false);
+      fixation.setLineColor(new util.Color(target_color), false);
     }
     
     // *dot1* updates

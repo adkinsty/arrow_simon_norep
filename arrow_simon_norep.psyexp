@@ -80,7 +80,7 @@
     </Routine>
     <Routine name="trial">
       <TextComponent name="trial_finger">
-        <Param name="color" updates="constant" val="black" valType="color"/>
+        <Param name="color" updates="set every frame" val="$target_color" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
@@ -109,10 +109,10 @@
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$[-1,-1,-1]" valType="str"/>
+        <Param name="fillColor" updates="set every frame" val="$target_color" valType="str"/>
         <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$[-1,-1,-1]" valType="str"/>
+        <Param name="lineColor" updates="set every frame" val="$target_color" valType="str"/>
         <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="lineWidth" updates="constant" val="1" valType="code"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
@@ -288,7 +288,7 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="accs = [];&amp;#10;rews = [];&amp;#10;too_slows = [];&amp;#10;too_soons = [];&amp;#10;trial_num = 1;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="target.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() + 1.5;&amp;#10;&amp;#10;if (trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="target.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() + 1.5;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
@@ -534,7 +534,7 @@
     </Routine>
     <Routine name="trial_train_simon">
       <TextComponent name="train_trial_finger">
-        <Param name="color" updates="constant" val="black" valType="color"/>
+        <Param name="color" updates="set every frame" val="$target_color" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
@@ -563,10 +563,10 @@
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="1" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$[-1,-1,-1]" valType="str"/>
+        <Param name="fillColor" updates="set every frame" val="$target_color" valType="str"/>
         <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$[-1,-1,-1]" valType="str"/>
+        <Param name="lineColor" updates="set every frame" val="$target_color" valType="str"/>
         <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="lineWidth" updates="constant" val="1" valType="code"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
@@ -631,10 +631,10 @@
       </KeyboardComponent>
       <CodeComponent name="trial_code_simon">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="blue = '#a3d0fb';&amp;#10;orange = '#f3af84';" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="train_trial_num = 1;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="target_simon.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() * (1 - 0) + 0;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="target_simon.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() * (1 - 0) + 0;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
