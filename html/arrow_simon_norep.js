@@ -225,7 +225,7 @@ function experimentInit() {
   block_one_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'block_one_text',
-    text: 'Congrats. You completed training block 1 of 2. Feel free to relax for a moment. And remember: \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nPress the SPACE BAR when you are ready to continue.\n',
+    text: 'Nice job! You completed training block 1 of 2. Feel free to relax for a moment. And remember: \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nPress the SPACE BAR when you are ready to continue.\n',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
@@ -254,7 +254,7 @@ function experimentInit() {
   instruct_text_timing = new visual.TextStim({
     win: psychoJS.window,
     name: 'instruct_text_timing',
-    text: 'You are about to begin a block of practice trials in a rapid response timing game. \n\nIn this block, there are no colors that you need to respond to. Instead, in each trial you will see a black cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.\n\nYour new goal is to respond exactly when you see the WHITE DOT. \n\nYou can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.\n\nWe recommend that you switch between these practice your timing with all fingers.\n\nAfter each trial, you will get feedback about how you did. \n\nWe will tell you if you were too slow or too fast. \n\nWhen you are ready to begin this block of practice trials, please press the SPACE BAR. ',
+    text: 'Nice job! Now you are about to begin a block of practice trials in a rapid response timing game. \n\nIn this block, there are no colors that you need to respond to. Instead, in each trial you will see a black cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.\n\nYour new goal is to respond exactly when you see the WHITE DOT. \n\nYou can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.\n\nWe recommend that you switch between these practice your timing with all fingers.\n\nAfter each trial, you will get feedback about how you did. \n\nWe will tell you if you were too slow or too fast. \n\nWhen you are ready to begin this block of practice trials, please press the SPACE BAR. ',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
@@ -331,7 +331,7 @@ function experimentInit() {
   instruct_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'instruct_text',
-    text: 'You are about to begin a block of trials in a timed arrow response game. You will respond to arrows like in the first block of practice trials, but you will need to time your responses perfectly, like in the second block of practice trials.\n\nAs in the first practice block, at a random time during the trial, a colored arrow will appear on the right or left side of the screen. You will press a key to report the direction of the arrow. \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nAs in the second practice block, each trial you will see a black cross in the center of the screen. The cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.\n\nPlease respond exactly when the WHITE DOT appears.\n\nWhen you are ready to begin the first block, please press the SPACE BAR. ',
+    text: 'Nice job! Now you are about to begin a block of trials in a timed arrow response game. You will respond to arrows like in the first phase of practice, but you will need to time your responses perfectly, like in the second phase of practice.\n\nAs in the first phase of practice, at a random time during the trial, a colored arrow will appear on the right or left side of the screen. You will press a key to report the direction of the arrow. \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nAs in the second phase of practice, each trial you will see a cross in the center of the screen. The cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.\n\nPlease respond exactly when the WHITE DOT appears.\n\nWhen you are ready to begin the first block, please press the SPACE BAR. ',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
@@ -426,7 +426,7 @@ function experimentInit() {
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0,
-    color: new util.Color('red'),  opacity: 1,
+    color: new util.Color('white'),  opacity: 1,
     depth: 0.0 
   });
   
@@ -435,7 +435,7 @@ function experimentInit() {
   block_one_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'block_one_text',
-    text: 'Congrats. You completed block 1 of 10. Feel free to relax for a moment. And remember: \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nPress the SPACE BAR when you are ready to continue.\n',
+    text: 'Nice job! You completed block 1 of 10. Feel free to relax for a moment. And remember: \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nPress the SPACE BAR when you are ready to continue.\n',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
@@ -856,7 +856,7 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       train_trial_finger.setAutoDraw(true);
     }
 
-    frameRemains = 0.0 + 1.0 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    frameRemains = 0.0 + 0.6 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (train_trial_finger.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       train_trial_finger.setAutoDraw(false);
     }
@@ -867,7 +867,7 @@ function trial_train_simonRoutineEachFrame(snapshot) {
     }
     
     // *fixation_simon* updates
-    if (t >= 0.0 && fixation_simon.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 0 && fixation_simon.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       fixation_simon.tStart = t;  // (not accounting for frame time here)
       fixation_simon.frameNStart = frameN;  // exact frame index
@@ -875,6 +875,10 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       fixation_simon.setAutoDraw(true);
     }
 
+    frameRemains = 0.6  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    if ((fixation_simon.status === PsychoJS.Status.STARTED || fixation_simon.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
+      fixation_simon.setAutoDraw(false);
+    }
     
     if (fixation_simon.status === PsychoJS.Status.STARTED){ // only update if being drawn
       fixation_simon.setFillColor(new util.Color(target_color), false);
@@ -1119,7 +1123,7 @@ function block_note_trainRoutineEachFrame(snapshot) {
     // update/draw components on each frame
     
     // *block_one_text* updates
-    if ((block_one) && block_one_text.status === PsychoJS.Status.NOT_STARTED) {
+    if ((train_block_one) && block_one_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       block_one_text.tStart = t;  // (not accounting for frame time here)
       block_one_text.frameNStart = frameN;  // exact frame index
@@ -1129,7 +1133,7 @@ function block_note_trainRoutineEachFrame(snapshot) {
 
     
     // *block_later_text* updates
-    if ((block_later) && block_later_text.status === PsychoJS.Status.NOT_STARTED) {
+    if ((train_block_later) && block_later_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       block_later_text.tStart = t;  // (not accounting for frame time here)
       block_later_text.frameNStart = frameN;  // exact frame index
@@ -1208,7 +1212,7 @@ function block_note_trainRoutineEnd(snapshot) {
     train_block_num += 1;
     train_block_later = true;
     train_block_one = false;
-    train_block_note_text_msg = (("Congrats. You completed training block " + train_block_num.toString()) + 
+    train_block_note_text_msg = (("Nice job! You completed training block " + train_block_num.toString()) + 
         " of 2. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.");
     
     
@@ -1461,10 +1465,6 @@ function trial_train_timingRoutineEachFrame(snapshot) {
       dot4_timing.setAutoDraw(true);
     }
 
-    frameRemains = 2.5 + 0.1 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
-    if (dot4_timing.status === PsychoJS.Status.STARTED && t >= frameRemains) {
-      dot4_timing.setAutoDraw(false);
-    }
     
     // *trial_resp_timing* updates
     if (t >= 0 && trial_resp_timing.status === PsychoJS.Status.NOT_STARTED) {
@@ -2049,16 +2049,26 @@ function trialRoutineEnd(snapshot) {
     rews += rew;
     too_slows += too_slow;
     too_soons += too_soon;
+    
     if (too_slow) {
         feedback_test_msg = "Too Slow";
-        feedback_duration = 1;
+        feedback_duration = .5;
+        feedback_color = 'red';
     } else {
         if (too_soon) {
             feedback_test_msg = "Too Fast";
-            feedback_duration = 1;
+            feedback_duration = .5;
+            feedback_color = 'red';
         } else {
-            feedback_test_msg = "Good timing";
-            feedback_duration = 0;
+            if ((trial_resp.corr != 1)) {
+                feedback_test_msg = "Wrong key";
+                feedback_duration = .5;
+                feedback_color = 'red'
+            } else {
+                feedback_test_msg = "Perfect!";
+                feedback_duration = .5;
+                feedback_color = 'green';
+            }
         }
     }
     
@@ -2116,6 +2126,7 @@ function feedback_testRoutineEachFrame(snapshot) {
     }
     
     if (feedback_test_text.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      feedback_test_text.setColor(new util.Color(feedback_color), false);
       feedback_test_text.setText(feedback_test_msg, false);
     }
     // check for quit (typically the Esc key)
@@ -2287,7 +2298,7 @@ function block_noteRoutineEnd(snapshot) {
     block_num += 1;
     block_later = true;
     block_one = false;
-    block_note_text_msg = (("Congrats. You completed block " + block_num.toString()) + 
+    block_note_text_msg = (("Nice job! You completed block " + block_num.toString()) + 
         " of 10. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.");
     
     

@@ -55,7 +55,7 @@
         <Param name="stopType" updates="None" val="time (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="You are about to begin a block of trials in a timed arrow response game. You will respond to arrows like in the first block of practice trials, but you will need to time your responses perfectly, like in the second block of practice trials.&amp;#10;&amp;#10;As in the first practice block, at a random time during the trial, a colored arrow will appear on the right or left side of the screen. You will press a key to report the direction of the arrow. &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;As in the second practice block, each trial you will see a black cross in the center of the screen. The cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.&amp;#10;&amp;#10;Please respond exactly when the WHITE DOT appears.&amp;#10;&amp;#10;When you are ready to begin the first block, please press the SPACE BAR. " valType="str"/>
+        <Param name="text" updates="constant" val="Nice job! Now you are about to begin a block of trials in a timed arrow response game. You will respond to arrows like in the first phase of practice, but you will need to time your responses perfectly, like in the second phase of practice.&amp;#10;&amp;#10;As in the first phase of practice, at a random time during the trial, a colored arrow will appear on the right or left side of the screen. You will press a key to report the direction of the arrow. &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;As in the second phase of practice, each trial you will see a cross in the center of the screen. The cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.&amp;#10;&amp;#10;Please respond exactly when the WHITE DOT appears.&amp;#10;&amp;#10;When you are ready to begin the first block, please press the SPACE BAR. " valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -295,7 +295,7 @@
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;&amp;#10;rt = trial_resp.rt;&amp;#10;if (((rt &gt;= 1.4) &amp;&amp; (rt &lt;= 1.6))) {&amp;#10;    too_slow = false;&amp;#10;    too_soon = false;&amp;#10;    if ((trial_resp.corr === 1)) {&amp;#10;        acc = 1;&amp;#10;    } else {&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((rt &gt; 1.6)) {&amp;#10;        too_slow = true;&amp;#10;        too_soon = false;&amp;#10;        acc = 0;&amp;#10;    } else {&amp;#10;        too_slow = false;&amp;#10;        too_soon = true;&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;}&amp;#10;accs += acc;&amp;#10;rew = 1;&amp;#10;rews += rew;&amp;#10;too_slows += too_slow;&amp;#10;too_soons += too_soon;&amp;#10;if (too_slow) {&amp;#10;    feedback_test_msg = &quot;Too Slow&quot;;&amp;#10;    feedback_duration = 1;&amp;#10;} else {&amp;#10;    if (too_soon) {&amp;#10;        feedback_test_msg = &quot;Too Fast&quot;;&amp;#10;        feedback_duration = 1;&amp;#10;    } else {&amp;#10;        feedback_test_msg = &quot;Good timing&quot;;&amp;#10;        feedback_duration = 0;&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;trial_num = trial_num + 1;&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;&amp;#10;rt = trial_resp.rt;&amp;#10;if (((rt &gt;= 1.4) &amp;&amp; (rt &lt;= 1.6))) {&amp;#10;    too_slow = false;&amp;#10;    too_soon = false;&amp;#10;    if ((trial_resp.corr === 1)) {&amp;#10;        acc = 1;&amp;#10;    } else {&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((rt &gt; 1.6)) {&amp;#10;        too_slow = true;&amp;#10;        too_soon = false;&amp;#10;        acc = 0;&amp;#10;    } else {&amp;#10;        too_slow = false;&amp;#10;        too_soon = true;&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;}&amp;#10;accs += acc;&amp;#10;rew = 1;&amp;#10;rews += rew;&amp;#10;too_slows += too_slow;&amp;#10;too_soons += too_soon;&amp;#10;&amp;#10;if (too_slow) {&amp;#10;    feedback_test_msg = &quot;Too Slow&quot;;&amp;#10;    feedback_duration = .5;&amp;#10;    feedback_color = 'red';&amp;#10;} else {&amp;#10;    if (too_soon) {&amp;#10;        feedback_test_msg = &quot;Too Fast&quot;;&amp;#10;        feedback_duration = .5;&amp;#10;        feedback_color = 'red';&amp;#10;    } else {&amp;#10;        if ((trial_resp.corr != 1)) {&amp;#10;            feedback_test_msg = &quot;Wrong key&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'red'&amp;#10;        } else {&amp;#10;            feedback_test_msg = &quot;Perfect!&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'green';&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;trial_num = trial_num + 1;&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="trial_code" valType="code"/>
@@ -377,7 +377,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Congrats. You completed block 1 of 10. Feel free to relax for a moment. And remember: &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;Press the SPACE BAR when you are ready to continue.&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="Nice job! You completed block 1 of 10. Feel free to relax for a moment. And remember: &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;Press the SPACE BAR when you are ready to continue.&amp;#10;" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -436,7 +436,7 @@
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="block_num += 1;&amp;#10;block_later = true;&amp;#10;block_one = false;&amp;#10;block_note_text_msg = ((&quot;Congrats. You completed block &quot; + block_num.toString()) + &amp;#10;    &quot; of 10. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.&quot;);&amp;#10;&amp;#10;&amp;#10;&amp;#10; &amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="block_num += 1;&amp;#10;block_later = true;&amp;#10;block_one = false;&amp;#10;block_note_text_msg = ((&quot;Nice job! You completed block &quot; + block_num.toString()) + &amp;#10;    &quot; of 10. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.&quot;);&amp;#10;&amp;#10;&amp;#10;&amp;#10; &amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="block_note_code" valType="code"/>
@@ -509,7 +509,7 @@
         <Param name="stopType" updates="None" val="time (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="You are about to begin a block of practice trials in a rapid response timing game. &amp;#10;&amp;#10;In this block, there are no colors that you need to respond to. Instead, in each trial you will see a black cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.&amp;#10;&amp;#10;Your new goal is to respond exactly when you see the WHITE DOT. &amp;#10;&amp;#10;You can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.&amp;#10;&amp;#10;We recommend that you switch between these practice your timing with all fingers.&amp;#10;&amp;#10;After each trial, you will get feedback about how you did. &amp;#10;&amp;#10;We will tell you if you were too slow or too fast. &amp;#10;&amp;#10;When you are ready to begin this block of practice trials, please press the SPACE BAR. " valType="str"/>
+        <Param name="text" updates="constant" val="Nice job! Now you are about to begin a block of practice trials in a rapid response timing game. &amp;#10;&amp;#10;In this block, there are no colors that you need to respond to. Instead, in each trial you will see a black cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.&amp;#10;&amp;#10;Your new goal is to respond exactly when you see the WHITE DOT. &amp;#10;&amp;#10;You can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.&amp;#10;&amp;#10;We recommend that you switch between these practice your timing with all fingers.&amp;#10;&amp;#10;After each trial, you will get feedback about how you did. &amp;#10;&amp;#10;We will tell you if you were too slow or too fast. &amp;#10;&amp;#10;When you are ready to begin this block of practice trials, please press the SPACE BAR. " valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -552,7 +552,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1" valType="num"/>
+        <Param name="stopVal" updates="constant" val=".6" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="set every frame" val="$finger_text" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -562,7 +562,7 @@
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="1" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="fillColor" updates="set every frame" val="$target_color" valType="str"/>
         <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
@@ -579,9 +579,9 @@
         <Param name="size" updates="constant" val="(0.05, 0.05)" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="time (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val=".6" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </PolygonComponent>
@@ -779,7 +779,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="2.5" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val=".1" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </PolygonComponent>
@@ -883,7 +883,7 @@
     </Routine>
     <Routine name="feedback_test">
       <TextComponent name="feedback_test_text">
-        <Param name="color" updates="constant" val="red" valType="str"/>
+        <Param name="color" updates="set every frame" val="$feedback_color" valType="str"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
@@ -926,11 +926,11 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="condition" valType="str"/>
-        <Param name="startVal" updates="None" val="block_one" valType="code"/>
+        <Param name="startVal" updates="None" val="$train_block_one" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Congrats. You completed training block 1 of 2. Feel free to relax for a moment. And remember: &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;Press the SPACE BAR when you are ready to continue.&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="Nice job! You completed training block 1 of 2. Feel free to relax for a moment. And remember: &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;Press the SPACE BAR when you are ready to continue.&amp;#10;" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -951,7 +951,7 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="condition" valType="str"/>
-        <Param name="startVal" updates="None" val="$block_later" valType="code"/>
+        <Param name="startVal" updates="None" val="$train_block_later" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -989,7 +989,7 @@
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="train_block_num += 1;&amp;#10;train_block_later = true;&amp;#10;train_block_one = false;&amp;#10;train_block_note_text_msg = ((&quot;Congrats. You completed training block &quot; + train_block_num.toString()) + &amp;#10;    &quot; of 2. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.&quot;);&amp;#10;&amp;#10;&amp;#10;&amp;#10; &amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="train_block_num += 1;&amp;#10;train_block_later = true;&amp;#10;train_block_one = false;&amp;#10;train_block_note_text_msg = ((&quot;Nice job! You completed training block &quot; + train_block_num.toString()) + &amp;#10;    &quot; of 2. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.&quot;);&amp;#10;&amp;#10;&amp;#10;&amp;#10; &amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="block_note_code_" valType="code"/>
