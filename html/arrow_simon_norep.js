@@ -31,8 +31,6 @@ let expName = 'arrow_simon_norep';  // from the Builder filename that created th
 let expInfo = {'participant': '', 'session': '001'};
 
 // Start code blocks for 'Before Experiment'
-blue = '#a3d0fb';
-orange = '#f3af84';
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
   dictionary: expInfo,
@@ -202,6 +200,8 @@ function experimentInit() {
   trial_resp_simon = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   train_trial_num = 1;
+  var blue = '#a3d0fb';
+  var orange = '#f3af84';
   // Initialize components for Routine "feedback"
   feedbackClock = new util.Clock();
   feedback_text = new visual.TextStim({
