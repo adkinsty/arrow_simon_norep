@@ -36,10 +36,10 @@ flowScheduler.add(experimentInit);
 flowScheduler.add(instructions_simonRoutineBegin());
 flowScheduler.add(instructions_simonRoutineEachFrame());
 flowScheduler.add(instructions_simonRoutineEnd());
-const trials_train_simonLoopScheduler = new Scheduler(psychoJS);
-flowScheduler.add(trials_train_simonLoopBegin, trials_train_simonLoopScheduler);
-flowScheduler.add(trials_train_simonLoopScheduler);
-flowScheduler.add(trials_train_simonLoopEnd);
+const blocks_trainLoopScheduler = new Scheduler(psychoJS);
+flowScheduler.add(blocks_trainLoopBegin, blocks_trainLoopScheduler);
+flowScheduler.add(blocks_trainLoopScheduler);
+flowScheduler.add(blocks_trainLoopEnd);
 flowScheduler.add(instructions_timingRoutineBegin());
 flowScheduler.add(instructions_timingRoutineEachFrame());
 flowScheduler.add(instructions_timingRoutineEnd());
@@ -102,6 +102,12 @@ var color_blue;
 var color_orange;
 var feedbackClock;
 var feedback_text;
+var block_note_trainClock;
+var block_one_text;
+var block_later_text;
+var block_note_resp;
+var train_block_num;
+var train_block_one;
 var instructions_timingClock;
 var instruct_text_timing;
 var instruct_resp_timing;
@@ -134,9 +140,6 @@ var trial_num;
 var feedback_testClock;
 var feedback_test_text;
 var block_noteClock;
-var block_one_text;
-var block_later_text;
-var block_note_resp;
 var block_num;
 var block_one;
 var globalClock;
@@ -205,6 +208,35 @@ function experimentInit() {
     color: new util.Color('white'),  opacity: 1,
     depth: 0.0 
   });
+  
+  // Initialize components for Routine "block_note_train"
+  block_note_trainClock = new util.Clock();
+  block_one_text = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'block_one_text',
+    text: 'Congrats. You completed training block 1 of 2. Feel free to relax for a moment. And remember: \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nPress the SPACE BAR when you are ready to continue.\n',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
+    color: new util.Color('black'),  opacity: 1,
+    depth: 0.0 
+  });
+  
+  block_later_text = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'block_later_text',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
+    color: new util.Color('black'),  opacity: 1,
+    depth: -1.0 
+  });
+  
+  block_note_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  train_block_num = 1;
+  train_block_one = true;
   
   // Initialize components for Routine "instructions_timing"
   instructions_timingClock = new util.Clock();
@@ -306,7 +338,7 @@ function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0.1], height: 0.02,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.05], height: 0.02,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -561,16 +593,48 @@ function instructions_simonRoutineEnd(snapshot) {
 }
 
 
-var trials_train_simon;
+var blocks_train;
 var currentLoop;
+function blocks_trainLoopBegin(blocks_trainLoopScheduler) {
+  // set up handler to look after randomisation of conditions etc
+  blocks_train = new TrialHandler({
+    psychoJS: psychoJS,
+    nReps: 2, method: TrialHandler.Method.SEQUENTIAL,
+    extraInfo: expInfo, originPath: undefined,
+    trialList: undefined,
+    seed: undefined, name: 'blocks_train'
+  });
+  psychoJS.experiment.addLoop(blocks_train); // add the loop to the experiment
+  currentLoop = blocks_train;  // we're now the current loop
+
+  // Schedule all the trials in the trialList:
+  blocks_train.forEach(function() {
+    const snapshot = blocks_train.getSnapshot();
+
+    blocks_trainLoopScheduler.add(importConditions(snapshot));
+    const trials_train_simonLoopScheduler = new Scheduler(psychoJS);
+    blocks_trainLoopScheduler.add(trials_train_simonLoopBegin, trials_train_simonLoopScheduler);
+    blocks_trainLoopScheduler.add(trials_train_simonLoopScheduler);
+    blocks_trainLoopScheduler.add(trials_train_simonLoopEnd);
+    blocks_trainLoopScheduler.add(block_note_trainRoutineBegin(snapshot));
+    blocks_trainLoopScheduler.add(block_note_trainRoutineEachFrame(snapshot));
+    blocks_trainLoopScheduler.add(block_note_trainRoutineEnd(snapshot));
+    blocks_trainLoopScheduler.add(endLoopIteration(blocks_trainLoopScheduler, snapshot));
+  });
+
+  return Scheduler.Event.NEXT;
+}
+
+
+var trials_train_simon;
 function trials_train_simonLoopBegin(trials_train_simonLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   trials_train_simon = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 2, method: TrialHandler.Method.RANDOM,
+    nReps: 15, method: TrialHandler.Method.RANDOM,
     extraInfo: expInfo, originPath: undefined,
     trialList: 'conditions.csv',
-    seed: 15, name: 'trials_train_simon'
+    seed: undefined, name: 'trials_train_simon'
   });
   psychoJS.experiment.addLoop(trials_train_simon); // add the loop to the experiment
   currentLoop = trials_train_simon;  // we're now the current loop
@@ -600,15 +664,22 @@ function trials_train_simonLoopEnd() {
 }
 
 
+function blocks_trainLoopEnd() {
+  psychoJS.experiment.removeLoop(blocks_train);
+
+  return Scheduler.Event.NEXT;
+}
+
+
 var trials_train_timing;
 function trials_train_timingLoopBegin(trials_train_timingLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   trials_train_timing = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 6, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: 60, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
-    seed: 60, name: 'trials_train_timing'
+    seed: undefined, name: 'trials_train_timing'
   });
   psychoJS.experiment.addLoop(trials_train_timing); // add the loop to the experiment
   currentLoop = trials_train_timing;  // we're now the current loop
@@ -643,10 +714,10 @@ function blocksLoopBegin(blocksLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   blocks = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 2, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: 10, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
-    seed: 10, name: 'blocks'
+    seed: undefined, name: 'blocks'
   });
   psychoJS.experiment.addLoop(blocks); // add the loop to the experiment
   currentLoop = blocks;  // we're now the current loop
@@ -675,10 +746,10 @@ function trialsLoopBegin(trialsLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   trials = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 4, method: TrialHandler.Method.RANDOM,
+    nReps: 15, method: TrialHandler.Method.RANDOM,
     extraInfo: expInfo, originPath: undefined,
     trialList: 'conditions.csv',
-    seed: 15, name: 'trials'
+    seed: undefined, name: 'trials'
   });
   psychoJS.experiment.addLoop(trials); // add the loop to the experiment
   currentLoop = trials;  // we're now the current loop
@@ -1002,6 +1073,151 @@ function feedbackRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     });
+    return Scheduler.Event.NEXT;
+  };
+}
+
+
+var _block_note_resp_allKeys;
+var block_note_trainComponents;
+function block_note_trainRoutineBegin(snapshot) {
+  return function () {
+    //------Prepare to start Routine 'block_note_train'-------
+    t = 0;
+    block_note_trainClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    block_later_text.setText(train_block_note_text_msg);
+    block_note_resp.keys = undefined;
+    block_note_resp.rt = undefined;
+    _block_note_resp_allKeys = [];
+    trial_num = 1;
+    // keep track of which components have finished
+    block_note_trainComponents = [];
+    block_note_trainComponents.push(block_one_text);
+    block_note_trainComponents.push(block_later_text);
+    block_note_trainComponents.push(block_note_resp);
+    
+    block_note_trainComponents.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function block_note_trainRoutineEachFrame(snapshot) {
+  return function () {
+    //------Loop for each frame of Routine 'block_note_train'-------
+    // get current time
+    t = block_note_trainClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *block_one_text* updates
+    if ((block_one) && block_one_text.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      block_one_text.tStart = t;  // (not accounting for frame time here)
+      block_one_text.frameNStart = frameN;  // exact frame index
+      
+      block_one_text.setAutoDraw(true);
+    }
+
+    
+    // *block_later_text* updates
+    if ((block_later) && block_later_text.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      block_later_text.tStart = t;  // (not accounting for frame time here)
+      block_later_text.frameNStart = frameN;  // exact frame index
+      
+      block_later_text.setAutoDraw(true);
+    }
+
+    
+    // *block_note_resp* updates
+    if (t >= 0.0 && block_note_resp.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      block_note_resp.tStart = t;  // (not accounting for frame time here)
+      block_note_resp.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { block_note_resp.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { block_note_resp.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { block_note_resp.clearEvents(); });
+    }
+
+    if (block_note_resp.status === PsychoJS.Status.STARTED) {
+      let theseKeys = block_note_resp.getKeys({keyList: ['space', 'esc'], waitRelease: false});
+      _block_note_resp_allKeys = _block_note_resp_allKeys.concat(theseKeys);
+      if (_block_note_resp_allKeys.length > 0) {
+        block_note_resp.keys = _block_note_resp_allKeys[0].name;  // just the first key pressed
+        block_note_resp.rt = _block_note_resp_allKeys[0].rt;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    block_note_trainComponents.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+var train_block_later;
+var train_block_note_text_msg;
+function block_note_trainRoutineEnd(snapshot) {
+  return function () {
+    //------Ending Routine 'block_note_train'-------
+    block_note_trainComponents.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    psychoJS.experiment.addData('block_note_resp.keys', block_note_resp.keys);
+    if (typeof block_note_resp.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('block_note_resp.rt', block_note_resp.rt);
+        routineTimer.reset();
+        }
+    
+    block_note_resp.stop();
+    train_block_num += 1;
+    train_block_later = true;
+    train_block_one = false;
+    train_block_note_text_msg = (("Congrats. You completed training block " + train_block_num.toString()) + 
+        " of 2. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.");
+    
+    
+    
+     
+    
+    
+    
+    // the Routine "block_note_train" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
     return Scheduler.Event.NEXT;
   };
 }
@@ -1949,7 +2165,6 @@ function feedback_testRoutineEnd(snapshot) {
 }
 
 
-var _block_note_resp_allKeys;
 var block_noteComponents;
 function block_noteRoutineBegin(snapshot) {
   return function () {
@@ -2130,6 +2345,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   

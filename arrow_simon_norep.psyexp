@@ -92,7 +92,7 @@
         <Param name="name" updates="None" val="trial_finger" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0,.1)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0,.05)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -908,9 +908,107 @@
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
     </Routine>
+    <Routine name="block_note_train">
+      <TextComponent name="block_one_text_">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.02" valType="code"/>
+        <Param name="name" updates="None" val="block_one_text_" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="condition" valType="str"/>
+        <Param name="startVal" updates="None" val="block_one" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Congrats. You completed training block 1 of 2. Feel free to relax for a moment. And remember: &amp;#10;&amp;#10;On odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the W key with your LEFT POINTER finger. &amp;#10;* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.&amp;#10;&amp;#10;On even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. &amp;#10;&amp;#10;* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. &amp;#10;* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.&amp;#10;&amp;#10;Press the SPACE BAR when you are ready to continue.&amp;#10;" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <TextComponent name="block_later_text_">
+        <Param name="color" updates="constant" val="black" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.02" valType="code"/>
+        <Param name="name" updates="None" val="block_later_text_" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="condition" valType="str"/>
+        <Param name="startVal" updates="None" val="$block_later" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$train_block_note_text_msg" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="block_note_resp_">
+        <Param name="allowedKeys" updates="constant" val="'space','esc'" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="block_note_resp_" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="first key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="block_note_code_">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="train_block_num = 1;&amp;#10;train_block_one = true;&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="trial_num = 1;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="train_block_num += 1;&amp;#10;train_block_later = true;&amp;#10;train_block_one = false;&amp;#10;train_block_note_text_msg = ((&quot;Congrats. You completed training block &quot; + train_block_num.toString()) + &amp;#10;    &quot; of 2. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.&quot;);&amp;#10;&amp;#10;&amp;#10;&amp;#10; &amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="block_note_code_" valType="code"/>
+      </CodeComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="instructions_simon"/>
+    <LoopInitiator loopType="TrialHandler" name="blocks_train">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="2" valType="num"/>
+      <Param name="name" updates="None" val="blocks_train" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="trials_train_simon">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('target_pos', [-0.33, 0]), ('odd_target_resp', 'o'), ('odd_target_file', 'right_blue.png'), ('even_target_file', 'right_orange.png'), ('even_target_resp', 'p')]), OrderedDict([('target_pos', [0.33, 0]), ('odd_target_resp', 'o'), ('odd_target_file', 'right_blue.png'), ('even_target_file', 'right_orange.png'), ('even_target_resp', 'p')]), OrderedDict([('target_pos', [-0.33, 0]), ('odd_target_resp', 'w'), ('odd_target_file', 'left_blue.png'), ('even_target_file', 'left_orange.png'), ('even_target_resp', 'q')]), OrderedDict([('target_pos', [0.33, 0]), ('odd_target_resp', 'w'), ('odd_target_file', 'left_blue.png'), ('even_target_file', 'left_orange.png'), ('even_target_resp', 'q')])]" valType="str"/>
@@ -918,13 +1016,15 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="2" valType="code"/>
+      <Param name="nReps" updates="None" val="15" valType="code"/>
       <Param name="name" updates="None" val="trials_train_simon" valType="code"/>
-      <Param name="random seed" updates="None" val="15" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="trial_train_simon"/>
     <Routine name="feedback"/>
     <LoopTerminator name="trials_train_simon"/>
+    <Routine name="block_note_train"/>
+    <LoopTerminator name="blocks_train"/>
     <Routine name="instructions_timing"/>
     <LoopInitiator loopType="TrialHandler" name="trials_train_timing">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
@@ -933,9 +1033,9 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="6" valType="code"/>
+      <Param name="nReps" updates="None" val="60" valType="code"/>
       <Param name="name" updates="None" val="trials_train_timing" valType="code"/>
-      <Param name="random seed" updates="None" val="60" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="trial_train_timing"/>
     <Routine name="feedback_timing"/>
@@ -948,9 +1048,9 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="2" valType="code"/>
+      <Param name="nReps" updates="None" val="10" valType="code"/>
       <Param name="name" updates="None" val="blocks" valType="code"/>
-      <Param name="random seed" updates="None" val="10" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
@@ -959,9 +1059,9 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="4" valType="code"/>
+      <Param name="nReps" updates="None" val="15" valType="code"/>
       <Param name="name" updates="None" val="trials" valType="code"/>
-      <Param name="random seed" updates="None" val="15" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="trial"/>
     <Routine name="feedback_test"/>
