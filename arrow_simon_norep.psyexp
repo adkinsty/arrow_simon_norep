@@ -287,8 +287,8 @@
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="accs = [];&amp;#10;rews = [];&amp;#10;too_slows = [];&amp;#10;too_soons = [];&amp;#10;trial_num = 1;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="target.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() + 1.5;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="accs = [];&amp;#10;rews = [];&amp;#10;too_slows = [];&amp;#10;too_soons = [];&amp;#10;trial_num = 1;&amp;#10;color_blue = '#a3d0fb';&amp;#10;color_orange = '#f3af84';" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="target.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() + 1.5;&amp;#10;&amp;#10;if (trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
@@ -633,8 +633,8 @@
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="train_trial_num = 1;&amp;#10;var blue = '#a3d0fb';&amp;#10;var orange = '#f3af84';" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="target_simon.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() * (1 - 0) + 0;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="train_trial_num = 1;&amp;#10;color_blue = '#a3d0fb';&amp;#10;color_orange = '#f3af84';" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="target_simon.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() * (1 - 0) + 0;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>

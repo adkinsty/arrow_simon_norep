@@ -109,6 +109,8 @@ var fixation_simon;
 var target_simon;
 var trial_resp_simon;
 var train_trial_num;
+var color_blue;
+var color_orange;
 var feedbackClock;
 var feedback_text;
 var instructions_timingClock;
@@ -200,8 +202,8 @@ function experimentInit() {
   trial_resp_simon = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   train_trial_num = 1;
-  var blue = '#a3d0fb';
-  var orange = '#f3af84';
+  color_blue = '#a3d0fb';
+  color_orange = '#f3af84';
   // Initialize components for Routine "feedback"
   feedbackClock = new util.Clock();
   feedback_text = new visual.TextStim({
@@ -381,6 +383,8 @@ function experimentInit() {
   too_slows = [];
   too_soons = [];
   trial_num = 1;
+  color_blue = '#a3d0fb';
+  color_orange = '#f3af84';
   // Initialize components for Routine "feedback_test"
   feedback_testClock = new util.Clock();
   feedback_test_text = new visual.TextStim({
@@ -741,12 +745,12 @@ function trial_train_simonRoutineBegin(snapshot) {
     if (train_trial_num % 2 === 0) {
         target_resp = even_target_resp;
         target_file = even_target_file;
-        target_color = orange;
+        target_color = color_orange;
         finger_text = 'MIDDLE';
     } else {
         target_resp = odd_target_resp;
         target_file = odd_target_file; 
-        target_color = blue;
+        target_color = color_blue;
         finger_text = 'POINTER';
     }
     // keep track of which components have finished
@@ -1575,15 +1579,15 @@ function trialRoutineBegin(snapshot) {
     target.setPos(eval(target_pos));
     target_onset = Math.random() + 1.5;
     
-    if (train_trial_num % 2 === 0) {
+    if (trial_num % 2 === 0) {
         target_resp = even_target_resp;
         target_file = even_target_file;
-        target_color = orange;
+        target_color = color_orange;
         finger_text = 'MIDDLE';
     } else {
         target_resp = odd_target_resp;
         target_file = odd_target_file; 
-        target_color = blue;
+        target_color = color_blue;
         finger_text = 'POINTER';
     }
     // keep track of which components have finished
