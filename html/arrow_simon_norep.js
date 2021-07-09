@@ -94,7 +94,7 @@ function updateInfo() {
 
   // add info from the URL:
   util.addInfoFromUrl(expInfo);
-  psychoJS.setRedirectUrls('https://app.prolific.co/submissions/complete?cc=ABCDEFG', '');
+  psychoJS.setRedirectUrls('https://app.prolific.co/submissions/complete?cc=4D95157C', '');
 
   return Scheduler.Event.NEXT;
 }
@@ -1008,7 +1008,7 @@ function feedbackRoutineBegin(snapshot) {
     feedbackClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    routineTimer.add(0.400000);
+    routineTimer.add(1.000000);
     // update component parameters for each repeat
     feedback_text.setColor(new util.Color(feedback_color));
     feedback_text.setText(feedback_msg);
@@ -1041,7 +1041,7 @@ function feedbackRoutineEachFrame(snapshot) {
       feedback_text.setAutoDraw(true);
     }
 
-    frameRemains = 0.4  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    frameRemains = 1  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if ((feedback_text.status === PsychoJS.Status.STARTED || feedback_text.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
       feedback_text.setAutoDraw(false);
     }
