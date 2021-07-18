@@ -247,7 +247,7 @@
         <Param name="durationEstim" updates="None" val="1.1" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every frame" val="$target_file" valType="str"/>
+        <Param name="image" updates="set every repeat" val="$target_file" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="None" valType="str"/>
         <Param name="name" updates="None" val="target" valType="code"/>
@@ -593,7 +593,7 @@
         <Param name="durationEstim" updates="None" val="1" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every frame" val="$target_file" valType="str"/>
+        <Param name="image" updates="set every repeat" val="$target_file" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="None" valType="str"/>
         <Param name="name" updates="None" val="target_simon" valType="code"/>
@@ -909,7 +909,7 @@
       </TextComponent>
     </Routine>
     <Routine name="block_note_train">
-      <TextComponent name="block_one_text_">
+      <TextComponent name="train_block_one_text">
         <Param name="color" updates="constant" val="black" valType="str"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -919,7 +919,7 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.02" valType="code"/>
-        <Param name="name" updates="None" val="block_one_text_" valType="code"/>
+        <Param name="name" updates="None" val="train_block_one_text" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -934,7 +934,7 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
-      <TextComponent name="block_later_text_">
+      <TextComponent name="train_block_later_text">
         <Param name="color" updates="constant" val="black" valType="str"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -944,7 +944,7 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.02" valType="code"/>
-        <Param name="name" updates="None" val="block_later_text_" valType="code"/>
+        <Param name="name" updates="None" val="train_block_later_text" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -959,14 +959,14 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="block_note_resp_">
+      <KeyboardComponent name="train_block_note_resp">
         <Param name="allowedKeys" updates="constant" val="'space','esc'" valType="code"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="block_note_resp_" valType="code"/>
+        <Param name="name" updates="None" val="train_block_note_resp" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -977,7 +977,7 @@
         <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
-      <CodeComponent name="block_note_code_">
+      <CodeComponent name="train_block_note_code">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -992,7 +992,7 @@
         <Param name="End JS Routine" updates="constant" val="train_block_num += 1;&amp;#10;train_block_later = true;&amp;#10;train_block_one = false;&amp;#10;train_block_note_text_msg = ((&quot;Nice job! You completed training block &quot; + train_block_num.toString()) + &amp;#10;    &quot; of 2. Feel free to relax for a moment.\n\nPress the SPACE BAR when you are ready to continue.&quot;);&amp;#10;&amp;#10;&amp;#10;&amp;#10; &amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="block_note_code_" valType="code"/>
+        <Param name="name" updates="None" val="train_block_note_code" valType="code"/>
       </CodeComponent>
     </Routine>
   </Routines>

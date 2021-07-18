@@ -114,9 +114,9 @@ var color_orange;
 var feedbackClock;
 var feedback_text;
 var block_note_trainClock;
-var block_one_text;
-var block_later_text;
-var block_note_resp;
+var train_block_one_text;
+var train_block_later_text;
+var train_block_note_resp;
 var train_block_num;
 var train_block_one;
 var instructions_timingClock;
@@ -151,6 +151,9 @@ var trial_num;
 var feedback_testClock;
 var feedback_test_text;
 var block_noteClock;
+var block_one_text;
+var block_later_text;
+var block_note_resp;
 var block_num;
 var block_one;
 var globalClock;
@@ -222,9 +225,9 @@ function experimentInit() {
   
   // Initialize components for Routine "block_note_train"
   block_note_trainClock = new util.Clock();
-  block_one_text = new visual.TextStim({
+  train_block_one_text = new visual.TextStim({
     win: psychoJS.window,
-    name: 'block_one_text',
+    name: 'train_block_one_text',
     text: 'Nice job! You completed training block 1 of 2. Feel free to relax for a moment. And remember: \n\nOn odd numbered trials (1, 3, 5, and so on) you will see a BLUE arrow and you will press the W or O key with your INDEX finger. \n\n* If the arrow points LEFT, press the W key with your LEFT POINTER finger. \n* If the arrow points RIGHT, press the O key with your RIGHT POINTER finger.\n\nOn even numbered trials (2, 4, 6, and so on) you will see an ORANGE arrow and you will press the Q or P key with your MIDDLE finger. \n\n* If the arrow points LEFT, press the Q key with your LEFT MIDDLE finger. \n* If the arrow points RIGHT, press the P key with your RIGHT MIDDLE finger.\n\nPress the SPACE BAR when you are ready to continue.\n',
     font: 'Arial',
     units: undefined, 
@@ -233,9 +236,9 @@ function experimentInit() {
     depth: 0.0 
   });
   
-  block_later_text = new visual.TextStim({
+  train_block_later_text = new visual.TextStim({
     win: psychoJS.window,
-    name: 'block_later_text',
+    name: 'train_block_later_text',
     text: '',
     font: 'Arial',
     units: undefined, 
@@ -244,7 +247,7 @@ function experimentInit() {
     depth: -1.0 
   });
   
-  block_note_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  train_block_note_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   train_block_num = 1;
   train_block_one = true;
@@ -806,6 +809,7 @@ function trial_train_simonRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    target_simon.setImage(target_file);
     trial_resp_simon.keys = undefined;
     trial_resp_simon.rt = undefined;
     _trial_resp_simon_allKeys = [];
@@ -894,10 +898,6 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       target_simon.setAutoDraw(true);
     }
 
-    
-    if (target_simon.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      target_simon.setImage(target_file, false);
-    }
     
     // *trial_resp_simon* updates
     if (t >= 0 && trial_resp_simon.status === PsychoJS.Status.NOT_STARTED) {
@@ -1090,7 +1090,7 @@ function feedbackRoutineEnd(snapshot) {
 }
 
 
-var _block_note_resp_allKeys;
+var _train_block_note_resp_allKeys;
 var block_note_trainComponents;
 function block_note_trainRoutineBegin(snapshot) {
   return function () {
@@ -1100,16 +1100,16 @@ function block_note_trainRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    block_later_text.setText(train_block_note_text_msg);
-    block_note_resp.keys = undefined;
-    block_note_resp.rt = undefined;
-    _block_note_resp_allKeys = [];
+    train_block_later_text.setText(train_block_note_text_msg);
+    train_block_note_resp.keys = undefined;
+    train_block_note_resp.rt = undefined;
+    _train_block_note_resp_allKeys = [];
     trial_num = 1;
     // keep track of which components have finished
     block_note_trainComponents = [];
-    block_note_trainComponents.push(block_one_text);
-    block_note_trainComponents.push(block_later_text);
-    block_note_trainComponents.push(block_note_resp);
+    block_note_trainComponents.push(train_block_one_text);
+    block_note_trainComponents.push(train_block_later_text);
+    block_note_trainComponents.push(train_block_note_resp);
     
     for (const thisComponent of block_note_trainComponents)
       if ('status' in thisComponent)
@@ -1127,44 +1127,44 @@ function block_note_trainRoutineEachFrame(snapshot) {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     
-    // *block_one_text* updates
-    if ((train_block_one) && block_one_text.status === PsychoJS.Status.NOT_STARTED) {
+    // *train_block_one_text* updates
+    if ((train_block_one) && train_block_one_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      block_one_text.tStart = t;  // (not accounting for frame time here)
-      block_one_text.frameNStart = frameN;  // exact frame index
+      train_block_one_text.tStart = t;  // (not accounting for frame time here)
+      train_block_one_text.frameNStart = frameN;  // exact frame index
       
-      block_one_text.setAutoDraw(true);
+      train_block_one_text.setAutoDraw(true);
     }
 
     
-    // *block_later_text* updates
-    if ((train_block_later) && block_later_text.status === PsychoJS.Status.NOT_STARTED) {
+    // *train_block_later_text* updates
+    if ((train_block_later) && train_block_later_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      block_later_text.tStart = t;  // (not accounting for frame time here)
-      block_later_text.frameNStart = frameN;  // exact frame index
+      train_block_later_text.tStart = t;  // (not accounting for frame time here)
+      train_block_later_text.frameNStart = frameN;  // exact frame index
       
-      block_later_text.setAutoDraw(true);
+      train_block_later_text.setAutoDraw(true);
     }
 
     
-    // *block_note_resp* updates
-    if (t >= 0.0 && block_note_resp.status === PsychoJS.Status.NOT_STARTED) {
+    // *train_block_note_resp* updates
+    if (t >= 0.0 && train_block_note_resp.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      block_note_resp.tStart = t;  // (not accounting for frame time here)
-      block_note_resp.frameNStart = frameN;  // exact frame index
+      train_block_note_resp.tStart = t;  // (not accounting for frame time here)
+      train_block_note_resp.frameNStart = frameN;  // exact frame index
       
       // keyboard checking is just starting
-      psychoJS.window.callOnFlip(function() { block_note_resp.clock.reset(); });  // t=0 on next screen flip
-      psychoJS.window.callOnFlip(function() { block_note_resp.start(); }); // start on screen flip
-      psychoJS.window.callOnFlip(function() { block_note_resp.clearEvents(); });
+      psychoJS.window.callOnFlip(function() { train_block_note_resp.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { train_block_note_resp.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { train_block_note_resp.clearEvents(); });
     }
 
-    if (block_note_resp.status === PsychoJS.Status.STARTED) {
-      let theseKeys = block_note_resp.getKeys({keyList: ['space', 'esc'], waitRelease: false});
-      _block_note_resp_allKeys = _block_note_resp_allKeys.concat(theseKeys);
-      if (_block_note_resp_allKeys.length > 0) {
-        block_note_resp.keys = _block_note_resp_allKeys[0].name;  // just the first key pressed
-        block_note_resp.rt = _block_note_resp_allKeys[0].rt;
+    if (train_block_note_resp.status === PsychoJS.Status.STARTED) {
+      let theseKeys = train_block_note_resp.getKeys({keyList: ['space', 'esc'], waitRelease: false});
+      _train_block_note_resp_allKeys = _train_block_note_resp_allKeys.concat(theseKeys);
+      if (_train_block_note_resp_allKeys.length > 0) {
+        train_block_note_resp.keys = _train_block_note_resp_allKeys[0].name;  // just the first key pressed
+        train_block_note_resp.rt = _train_block_note_resp_allKeys[0].rt;
         // a response ends the routine
         continueRoutine = false;
       }
@@ -1207,13 +1207,13 @@ function block_note_trainRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     }
-    psychoJS.experiment.addData('block_note_resp.keys', block_note_resp.keys);
-    if (typeof block_note_resp.keys !== 'undefined') {  // we had a response
-        psychoJS.experiment.addData('block_note_resp.rt', block_note_resp.rt);
+    psychoJS.experiment.addData('train_block_note_resp.keys', train_block_note_resp.keys);
+    if (typeof train_block_note_resp.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('train_block_note_resp.rt', train_block_note_resp.rt);
         routineTimer.reset();
         }
     
-    block_note_resp.stop();
+    train_block_note_resp.stop();
     train_block_num += 1;
     train_block_later = true;
     train_block_one = false;
@@ -1792,6 +1792,7 @@ function trialRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    target.setImage(target_file);
     trial_resp.keys = undefined;
     trial_resp.rt = undefined;
     _trial_resp_allKeys = [];
@@ -1935,10 +1936,6 @@ function trialRoutineEachFrame(snapshot) {
       target.setAutoDraw(true);
     }
 
-    
-    if (target.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      target.setImage(target_file, false);
-    }
     
     // *trial_resp* updates
     if (t >= 1 && trial_resp.status === PsychoJS.Status.NOT_STARTED) {
@@ -2186,6 +2183,7 @@ function feedback_testRoutineEnd(snapshot) {
 }
 
 
+var _block_note_resp_allKeys;
 var block_noteComponents;
 function block_noteRoutineBegin(snapshot) {
   return function () {
