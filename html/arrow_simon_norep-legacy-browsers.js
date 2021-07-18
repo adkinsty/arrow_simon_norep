@@ -172,7 +172,7 @@ function experimentInit() {
     font: 'Arial',
     units: undefined, 
     pos: [0, 0.05], height: 0.02,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color(undefined),  opacity: undefined,
     depth: 0.0 
   });
   
@@ -180,8 +180,8 @@ function experimentInit() {
     win: psychoJS.window, name: 'fixation_simon', 
     vertices: 'cross', size:[0.05, 0.05],
     ori: 0, pos: [0, 0],
-    lineWidth: 1, lineColor: new util.Color('white'),
-    fillColor: new util.Color('white'),
+    lineWidth: 1, lineColor: new util.Color(undefined),
+    fillColor: new util.Color(undefined),
     opacity: 1, depth: -1, interpolate: true,
   });
   
@@ -348,7 +348,7 @@ function experimentInit() {
     font: 'Arial',
     units: undefined, 
     pos: [0, 0.05], height: 0.02,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color(undefined),  opacity: undefined,
     depth: 0.0 
   });
   
@@ -356,8 +356,8 @@ function experimentInit() {
     win: psychoJS.window, name: 'fixation', 
     vertices: 'cross', size:[0.05, 0.05],
     ori: 0, pos: [0, 0],
-    lineWidth: 1, lineColor: new util.Color('white'),
-    fillColor: new util.Color('white'),
+    lineWidth: 1, lineColor: new util.Color(undefined),
+    fillColor: new util.Color(undefined),
     opacity: 1, depth: -1, interpolate: true,
   });
   
@@ -818,15 +818,9 @@ function trial_train_simonRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    train_trial_finger.setColor(new util.Color(target_color));
-    train_trial_finger.setText(finger_text);
-    fixation_simon.setFillColor(new util.Color(target_color));
-    fixation_simon.setLineColor(new util.Color(target_color));
-    target_simon.setImage(target_file);
     trial_resp_simon.keys = undefined;
     trial_resp_simon.rt = undefined;
     _trial_resp_simon_allKeys = [];
-    target_simon.setPos(eval(target_pos));
     target_onset = Math.random() * (1 - 0) + 0;
     
     if (train_trial_num % 2 === 0) {
@@ -840,6 +834,13 @@ function trial_train_simonRoutineBegin(snapshot) {
         target_color = color_blue;
         finger_text = 'POINTER';
     }
+    
+    train_trial_finger.setText(finger_text);
+    train_trial_finger.setColor(target_color);
+    fixation_simon.setColor(target_color);
+    target_simon.setPos(eval(target_pos));
+    target_simon.setImage(target_file);
+    
     // keep track of which components have finished
     trial_train_simonComponents = [];
     trial_train_simonComponents.push(train_trial_finger);
@@ -959,6 +960,7 @@ function trial_train_simonRoutineEachFrame(snapshot) {
 }
 
 
+var err;
 var feedback_msg;
 var feedback_color;
 function trial_train_simonRoutineEnd(snapshot) {
@@ -986,16 +988,19 @@ function trial_train_simonRoutineEnd(snapshot) {
         }
     
     trial_resp_simon.stop();
-    if ((trial_resp_simon.corr === 1)) {
+    if ((trial_resp_simon.keys === target_resp)) {
+        err = 0;
         feedback_msg = "Correct!";
         feedback_color = "green";
     } else {
+        err = 1;
         feedback_msg = "Incorrect.";
         feedback_color = "red";
     }
     
     train_trial_num = train_trial_num + 1;
     
+    psychoJS.experiment.addData('kerr', err)
     psychoJS.experiment.addData('target_onset', target_onset)
     psychoJS.experiment.addData('target_color', target_color)
     psychoJS.experiment.addData('target_pos', target_pos)
@@ -1802,15 +1807,9 @@ function trialRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    trial_finger.setColor(new util.Color(target_color));
-    trial_finger.setText(finger_text);
-    fixation.setFillColor(new util.Color(target_color));
-    fixation.setLineColor(new util.Color(target_color));
-    target.setImage(target_file);
     trial_resp.keys = undefined;
     trial_resp.rt = undefined;
     _trial_resp_allKeys = [];
-    target.setPos(eval(target_pos));
     target_onset = Math.random() + 1.5;
     
     if (trial_num % 2 === 0) {
@@ -1824,6 +1823,12 @@ function trialRoutineBegin(snapshot) {
         target_color = color_blue;
         finger_text = 'POINTER';
     }
+    
+    trial_finger.setText(finger_text);
+    trial_finger.setColor(target_color);
+    fixation.setColor(target_color);
+    target.setPos(eval(target_pos));
+    target.setImage(target_file);
     // keep track of which components have finished
     trialComponents = [];
     trialComponents.push(trial_finger);
@@ -2033,10 +2038,12 @@ function trialRoutineEnd(snapshot) {
     if (((rt >= 1.4) && (rt <= 1.6))) {
         too_slow = false;
         too_soon = false;
-        if ((trial_resp.corr === 1)) {
+        if ((trial_resp.keys === target_resp)) {
             acc = 1;
+            err = 0;
         } else {
             acc = 0;
+            err = 1;
         }
     } else {
         if ((rt > 1.6)) {
@@ -2082,6 +2089,7 @@ function trialRoutineEnd(snapshot) {
     psychoJS.experiment.addData('target_pos', target_pos)
     psychoJS.experiment.addData('target_file', target_file)
     psychoJS.experiment.addData('target_resp', target_resp)
+    psychoJS.experiment.addData('kerr', err)
     psychoJS.experiment.addData('too_slow', too_slow)
     psychoJS.experiment.addData('too_soon', too_soon)
     

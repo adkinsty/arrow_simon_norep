@@ -80,7 +80,7 @@
     </Routine>
     <Routine name="trial">
       <TextComponent name="trial_finger">
-        <Param name="color" updates="set every repeat" val="$target_color" valType="color"/>
+        <Param name="color" updates="constant" val="" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
@@ -100,7 +100,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val=".6" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$finger_text" valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -109,10 +109,10 @@
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="set every repeat" val="$target_color" valType="str"/>
+        <Param name="fillColor" updates="constant" val="" valType="str"/>
         <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="set every repeat" val="$target_color" valType="str"/>
+        <Param name="lineColor" updates="constant" val="" valType="str"/>
         <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="lineWidth" updates="constant" val="1" valType="code"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
@@ -247,7 +247,7 @@
         <Param name="durationEstim" updates="None" val="1.1" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every repeat" val="$target_file" valType="str"/>
+        <Param name="image" updates="constant" val="" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="None" valType="str"/>
         <Param name="name" updates="None" val="target" valType="code"/>
@@ -288,14 +288,14 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="accs = [];&amp;#10;rews = [];&amp;#10;too_slows = [];&amp;#10;too_soons = [];&amp;#10;trial_num = 1;&amp;#10;color_blue = '#a3d0fb';&amp;#10;color_orange = '#f3af84';&amp;#10;&amp;#10;&amp;#10;&amp;#10;// Defaults (i.e., trial 1)&amp;#10;//target_resp = 'o';&amp;#10;//target_color = color_blue;&amp;#10;//target_file = 'right_blue.png'&amp;#10;//target_pos = [(-0.33), 0];" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="target.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() + 1.5;&amp;#10;&amp;#10;if (trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="target_onset = Math.random() + 1.5;&amp;#10;&amp;#10;if (trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}&amp;#10;&amp;#10;trial_finger.setText(finger_text);&amp;#10;trial_finger.setColor(target_color);&amp;#10;fixation.setColor(target_color);&amp;#10;target.setPos(eval(target_pos));&amp;#10;target.setImage(target_file);" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="&amp;#10;rt = trial_resp.rt;&amp;#10;if (((rt &gt;= 1.4) &amp;&amp; (rt &lt;= 1.6))) {&amp;#10;    too_slow = false;&amp;#10;    too_soon = false;&amp;#10;    if ((trial_resp.corr === 1)) {&amp;#10;        acc = 1;&amp;#10;    } else {&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((rt &gt; 1.6)) {&amp;#10;        too_slow = true;&amp;#10;        too_soon = false;&amp;#10;        acc = 0;&amp;#10;    } else {&amp;#10;        too_slow = false;&amp;#10;        too_soon = true;&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;}&amp;#10;accs += acc;&amp;#10;too_slows += too_slow;&amp;#10;too_soons += too_soon;&amp;#10;&amp;#10;if (too_slow) {&amp;#10;    feedback_test_msg = &quot;Too Slow&quot;;&amp;#10;    feedback_duration = .5;&amp;#10;    feedback_color = 'red';&amp;#10;} else {&amp;#10;    if (too_soon) {&amp;#10;        feedback_test_msg = &quot;Too Fast&quot;;&amp;#10;        feedback_duration = .5;&amp;#10;        feedback_color = 'red';&amp;#10;    } else {&amp;#10;        if ((trial_resp.corr != 1)) {&amp;#10;            feedback_test_msg = &quot;Wrong key&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'red'&amp;#10;        } else {&amp;#10;            feedback_test_msg = &quot;Perfect!&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'green';&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;trial_num = trial_num + 1;&amp;#10;&amp;#10;psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;psychoJS.experiment.addData('target_color', target_color)&amp;#10;psychoJS.experiment.addData('target_pos', target_pos)&amp;#10;psychoJS.experiment.addData('target_file', target_file)&amp;#10;psychoJS.experiment.addData('target_resp', target_resp)&amp;#10;psychoJS.experiment.addData('too_slow', too_slow)&amp;#10;psychoJS.experiment.addData('too_soon', too_soon)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="&amp;#10;rt = trial_resp.rt;&amp;#10;if (((rt &gt;= 1.4) &amp;&amp; (rt &lt;= 1.6))) {&amp;#10;    too_slow = false;&amp;#10;    too_soon = false;&amp;#10;    if ((trial_resp.keys === target_resp)) {&amp;#10;        acc = 1;&amp;#10;        err = 0;&amp;#10;    } else {&amp;#10;        acc = 0;&amp;#10;        err = 1;&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((rt &gt; 1.6)) {&amp;#10;        too_slow = true;&amp;#10;        too_soon = false;&amp;#10;        acc = 0;&amp;#10;    } else {&amp;#10;        too_slow = false;&amp;#10;        too_soon = true;&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;}&amp;#10;accs += acc;&amp;#10;too_slows += too_slow;&amp;#10;too_soons += too_soon;&amp;#10;&amp;#10;if (too_slow) {&amp;#10;    feedback_test_msg = &quot;Too Slow&quot;;&amp;#10;    feedback_duration = .5;&amp;#10;    feedback_color = 'red';&amp;#10;} else {&amp;#10;    if (too_soon) {&amp;#10;        feedback_test_msg = &quot;Too Fast&quot;;&amp;#10;        feedback_duration = .5;&amp;#10;        feedback_color = 'red';&amp;#10;    } else {&amp;#10;        if ((trial_resp.corr != 1)) {&amp;#10;            feedback_test_msg = &quot;Wrong key&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'red'&amp;#10;        } else {&amp;#10;            feedback_test_msg = &quot;Perfect!&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'green';&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;trial_num = trial_num + 1;&amp;#10;&amp;#10;psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;psychoJS.experiment.addData('target_color', target_color)&amp;#10;psychoJS.experiment.addData('target_pos', target_pos)&amp;#10;psychoJS.experiment.addData('target_file', target_file)&amp;#10;psychoJS.experiment.addData('target_resp', target_resp)&amp;#10;psychoJS.experiment.addData('kerr', err)&amp;#10;psychoJS.experiment.addData('too_slow', too_slow)&amp;#10;psychoJS.experiment.addData('too_soon', too_soon)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="trial_code" valType="code"/>
@@ -534,7 +534,7 @@
     </Routine>
     <Routine name="trial_train_simon">
       <TextComponent name="train_trial_finger">
-        <Param name="color" updates="set every repeat" val="$target_color" valType="color"/>
+        <Param name="color" updates="constant" val="" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
@@ -554,7 +554,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val=".6" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$finger_text" valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -563,10 +563,10 @@
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="set every repeat" val="$target_color" valType="str"/>
+        <Param name="fillColor" updates="constant" val="" valType="str"/>
         <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="set every repeat" val="$target_color" valType="str"/>
+        <Param name="lineColor" updates="constant" val="" valType="str"/>
         <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="lineWidth" updates="constant" val="1" valType="code"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
@@ -593,7 +593,7 @@
         <Param name="durationEstim" updates="None" val="1" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every repeat" val="$target_file" valType="str"/>
+        <Param name="image" updates="constant" val="" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="None" valType="str"/>
         <Param name="name" updates="None" val="target_simon" valType="code"/>
@@ -634,14 +634,14 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="train_trial_num = 1;&amp;#10;color_blue = '#a3d0fb';&amp;#10;color_orange = '#f3af84';&amp;#10;&amp;#10;// Defaults (i.e., trial 1)&amp;#10;//target_resp = 'o';&amp;#10;//target_color = color_blue;&amp;#10;//target_file = 'right_blue.png'&amp;#10;//target_pos = [(-0.33), 0];" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="target_simon.setPos(eval(target_pos));&amp;#10;target_onset = Math.random() * (1 - 0) + 0;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="target_onset = Math.random() * (1 - 0) + 0;&amp;#10;&amp;#10;if (train_trial_num % 2 === 0) {&amp;#10;    target_resp = even_target_resp;&amp;#10;    target_file = even_target_file;&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_resp = odd_target_resp;&amp;#10;    target_file = odd_target_file; &amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}&amp;#10;&amp;#10;train_trial_finger.setText(finger_text);&amp;#10;train_trial_finger.setColor(target_color);&amp;#10;fixation_simon.setColor(target_color);&amp;#10;target_simon.setPos(eval(target_pos));&amp;#10;target_simon.setImage(target_file);&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="if ((trial_resp_simon.corr === 1)) {&amp;#10;    feedback_msg = &quot;Correct!&quot;;&amp;#10;    feedback_color = &quot;green&quot;;&amp;#10;} else {&amp;#10;    feedback_msg = &quot;Incorrect.&quot;;&amp;#10;    feedback_color = &quot;red&quot;;&amp;#10;}&amp;#10;&amp;#10;train_trial_num = train_trial_num + 1;&amp;#10;&amp;#10;psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;psychoJS.experiment.addData('target_color', target_color)&amp;#10;psychoJS.experiment.addData('target_pos', target_pos)&amp;#10;psychoJS.experiment.addData('target_file', target_file)&amp;#10;psychoJS.experiment.addData('target_resp', target_resp)" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="if ((trial_resp_simon.keys === target_resp)) {&amp;#10;    err = 0;&amp;#10;    feedback_msg = &quot;Correct!&quot;;&amp;#10;    feedback_color = &quot;green&quot;;&amp;#10;} else {&amp;#10;    err = 1;&amp;#10;    feedback_msg = &quot;Incorrect.&quot;;&amp;#10;    feedback_color = &quot;red&quot;;&amp;#10;}&amp;#10;&amp;#10;train_trial_num = train_trial_num + 1;&amp;#10;&amp;#10;psychoJS.experiment.addData('kerr', err)&amp;#10;psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;psychoJS.experiment.addData('target_color', target_color)&amp;#10;psychoJS.experiment.addData('target_pos', target_pos)&amp;#10;psychoJS.experiment.addData('target_file', target_file)&amp;#10;psychoJS.experiment.addData('target_resp', target_resp)" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="trial_code_simon" valType="code"/>
