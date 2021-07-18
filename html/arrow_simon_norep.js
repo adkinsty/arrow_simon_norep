@@ -842,7 +842,8 @@ function trial_train_simonRoutineBegin(snapshot) {
     
     train_trial_finger.setText(finger_text);
     train_trial_finger.setColor(target_color);
-    fixation_simon.setColor(target_color);
+    fixation_simon.setLineColor(target_color);
+    fixation_simon.setFillColor(target_color);
     target_simon.setPos(eval(target_pos));
     target_simon.setImage(target_file);
     
@@ -1824,7 +1825,8 @@ function trialRoutineBegin(snapshot) {
     
     trial_finger.setText(finger_text);
     trial_finger.setColor(target_color);
-    fixation.setColor(target_color);
+    fixation.setLineColor(target_color);
+    fixation.setFillColor(target_color);
     target.setPos(eval(target_pos));
     target.setImage(target_file);
     // keep track of which components have finished
