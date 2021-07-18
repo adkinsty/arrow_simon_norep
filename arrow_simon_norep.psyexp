@@ -253,7 +253,7 @@
         <Param name="name" updates="None" val="target" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="set every repeat" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="size" updates="constant" val="(0.1, 0.1)" valType="code"/>
         <Param name="startEstim" updates="None" val="1.5" valType="code"/>
@@ -599,7 +599,7 @@
         <Param name="name" updates="None" val="target_simon" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="set every repeat" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="size" updates="constant" val="(0.1, 0.1)" valType="code"/>
         <Param name="startEstim" updates="None" val="0" valType="code"/>

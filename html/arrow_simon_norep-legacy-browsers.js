@@ -822,7 +822,6 @@ function trial_train_simonRoutineBegin(snapshot) {
     train_trial_finger.setText(finger_text);
     fixation_simon.setFillColor(new util.Color(target_color));
     fixation_simon.setLineColor(new util.Color(target_color));
-    target_simon.setPos();
     target_simon.setImage(target_file);
     trial_resp_simon.keys = undefined;
     trial_resp_simon.rt = undefined;
@@ -1807,7 +1806,6 @@ function trialRoutineBegin(snapshot) {
     trial_finger.setText(finger_text);
     fixation.setFillColor(new util.Color(target_color));
     fixation.setLineColor(new util.Color(target_color));
-    target.setPos();
     target.setImage(target_file);
     trial_resp.keys = undefined;
     trial_resp.rt = undefined;
