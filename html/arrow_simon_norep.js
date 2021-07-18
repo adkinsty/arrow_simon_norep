@@ -992,6 +992,11 @@ function trial_train_simonRoutineEnd(snapshot) {
     
     train_trial_num = train_trial_num + 1;
     
+    psychoJS.experiment.addData('target_onset', target_onset)
+    psychoJS.experiment.addData('target_color', target_color)
+    psychoJS.experiment.addData('target_pos', target_pos)
+    psychoJS.experiment.addData('target_file', target_file)
+    psychoJS.experiment.addData('target_resp', target_resp)
     // the Routine "trial_train_simon" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -1213,7 +1218,7 @@ function block_note_trainRoutineEnd(snapshot) {
     train_block_later = true;
     train_block_one = false;
     train_block_note_text_msg = (("Nice job! You completed training block " + train_block_num.toString()) + 
-        " of 2. Feel free to relax for a moment. And remember: \n\n* If a BLUE arrow points LEFT, press the W key with your LEFT POINTER finger\n* If a BLUE arrow points RIGHT, press the O key with your RIGHT POINTER finger, and \n\n* If an ORANGE arrow points LEFT, press the Q key with your LEFT MIDDLE finger\n* If an ORANGE arrow points RIGHT, press the P key with your RIGHT MIDDLE finger. \n\nPress the SPACE BAR when you are ready to continue.");
+        " of 2. Feel free to relax for a moment.\n\nPress the SPACE BAR when you are ready to continue.");
     
     
     
@@ -1994,7 +1999,6 @@ function trialRoutineEachFrame(snapshot) {
 var too_slow;
 var too_soon;
 var acc;
-var rew;
 var feedback_test_msg;
 var feedback_duration;
 function trialRoutineEnd(snapshot) {
@@ -2022,7 +2026,6 @@ function trialRoutineEnd(snapshot) {
         }
     
     trial_resp.stop();
-    psychoJS.experiment.addData('target_onset', target_onset)
     
     rt = trial_resp.rt;
     if (((rt >= 1.4) && (rt <= 1.6))) {
@@ -2045,8 +2048,6 @@ function trialRoutineEnd(snapshot) {
         }
     }
     accs += acc;
-    rew = 1;
-    rews += rew;
     too_slows += too_slow;
     too_soons += too_soon;
     
@@ -2073,6 +2074,19 @@ function trialRoutineEnd(snapshot) {
     }
     
     trial_num = trial_num + 1;
+    
+    psychoJS.experiment.addData('target_onset', target_onset)
+    psychoJS.experiment.addData('target_color', target_color)
+    psychoJS.experiment.addData('target_pos', target_pos)
+    psychoJS.experiment.addData('target_file', target_file)
+    psychoJS.experiment.addData('target_resp', target_resp)
+    psychoJS.experiment.addData('too_slow', too_slow)
+    psychoJS.experiment.addData('too_soon', too_soon)
+    
+    
+    
+    
+    
     
     // the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
