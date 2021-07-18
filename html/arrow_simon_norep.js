@@ -657,7 +657,7 @@ function trials_train_simonLoopBegin(trials_train_simonLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   trials_train_simon = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 15, method: TrialHandler.Method.RANDOM,
+    nReps: 15, method: TrialHandler.Method.FULLRANDOM,
     extraInfo: expInfo, originPath: undefined,
     trialList: 'conditions.csv',
     seed: undefined, name: 'trials_train_simon'
@@ -769,7 +769,7 @@ function trialsLoopBegin(trialsLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   trials = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 15, method: TrialHandler.Method.RANDOM,
+    nReps: 15, method: TrialHandler.Method.FULLRANDOM,
     extraInfo: expInfo, originPath: undefined,
     trialList: 'conditions.csv',
     seed: undefined, name: 'trials'
