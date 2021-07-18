@@ -2113,7 +2113,10 @@ function feedback_testRoutineBegin(snapshot) {
     feedback_testClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
+    routineTimer.add(1.000000);
     // update component parameters for each repeat
+    feedback_test_text.setColor(new util.Color(feedback_color));
+    feedback_test_text.setText(feedback_test_msg);
     // keep track of which components have finished
     feedback_testComponents = [];
     feedback_testComponents.push(feedback_test_text);
@@ -2143,14 +2146,9 @@ function feedback_testRoutineEachFrame(snapshot) {
       feedback_test_text.setAutoDraw(true);
     }
 
-    frameRemains = feedback_duration  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    frameRemains = 1  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if ((feedback_test_text.status === PsychoJS.Status.STARTED || feedback_test_text.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
       feedback_test_text.setAutoDraw(false);
-    }
-    
-    if (feedback_test_text.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      feedback_test_text.setColor(new util.Color(feedback_color), false);
-      feedback_test_text.setText(feedback_test_msg, false);
     }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
@@ -2170,7 +2168,7 @@ function feedback_testRoutineEachFrame(snapshot) {
       }
     
     // refresh the screen if continuing
-    if (continueRoutine) {
+    if (continueRoutine && routineTimer.getTime() > 0) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -2187,9 +2185,6 @@ function feedback_testRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     }
-    // the Routine "feedback_test" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset();
-    
     return Scheduler.Event.NEXT;
   };
 }
