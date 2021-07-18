@@ -210,6 +210,12 @@ function experimentInit() {
   train_trial_num = 1;
   color_blue = '#a3d0fb';
   color_orange = '#f3af84';
+  
+  // Defaults (i.e., trial 1)
+  //target_resp = 'o';
+  //target_color = color_blue;
+  //target_file = 'right_blue.png'
+  //target_pos = [(-0.33), 0];
   // Initialize components for Routine "feedback"
   feedbackClock = new util.Clock();
   feedback_text = new visual.TextStim({
@@ -420,6 +426,14 @@ function experimentInit() {
   trial_num = 1;
   color_blue = '#a3d0fb';
   color_orange = '#f3af84';
+  
+  
+  
+  // Defaults (i.e., trial 1)
+  //target_resp = 'o';
+  //target_color = color_blue;
+  //target_file = 'right_blue.png'
+  //target_pos = [(-0.33), 0];
   // Initialize components for Routine "feedback_test"
   feedback_testClock = new util.Clock();
   feedback_test_text = new visual.TextStim({
@@ -809,6 +823,11 @@ function trial_train_simonRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    train_trial_finger.setColor(new util.Color(target_color));
+    train_trial_finger.setText(finger_text);
+    fixation_simon.setFillColor(new util.Color(target_color));
+    fixation_simon.setLineColor(new util.Color(target_color));
+    target_simon.setPos();
     target_simon.setImage(target_file);
     trial_resp_simon.keys = undefined;
     trial_resp_simon.rt = undefined;
@@ -865,11 +884,6 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       train_trial_finger.setAutoDraw(false);
     }
     
-    if (train_trial_finger.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      train_trial_finger.setColor(new util.Color(target_color), false);
-      train_trial_finger.setText(finger_text, false);
-    }
-    
     // *fixation_simon* updates
     if (t >= 0 && fixation_simon.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -879,14 +893,9 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       fixation_simon.setAutoDraw(true);
     }
 
-    frameRemains = 0.6  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
-    if ((fixation_simon.status === PsychoJS.Status.STARTED || fixation_simon.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
+    frameRemains = 0 + 0.6 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    if (fixation_simon.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       fixation_simon.setAutoDraw(false);
-    }
-    
-    if (fixation_simon.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      fixation_simon.setFillColor(new util.Color(target_color), false);
-      fixation_simon.setLineColor(new util.Color(target_color), false);
     }
     
     // *target_simon* updates
@@ -1792,6 +1801,11 @@ function trialRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    trial_finger.setColor(new util.Color(target_color));
+    trial_finger.setText(finger_text);
+    fixation.setFillColor(new util.Color(target_color));
+    fixation.setLineColor(new util.Color(target_color));
+    target.setPos();
     target.setImage(target_file);
     trial_resp.keys = undefined;
     trial_resp.rt = undefined;
@@ -1851,11 +1865,6 @@ function trialRoutineEachFrame(snapshot) {
       trial_finger.setAutoDraw(false);
     }
     
-    if (trial_finger.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      trial_finger.setColor(new util.Color(target_color), false);
-      trial_finger.setText(finger_text, false);
-    }
-    
     // *fixation* updates
     if (t >= 0 && fixation.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -1868,11 +1877,6 @@ function trialRoutineEachFrame(snapshot) {
     frameRemains = 0 + 0.6 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (fixation.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       fixation.setAutoDraw(false);
-    }
-    
-    if (fixation.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      fixation.setFillColor(new util.Color(target_color), false);
-      fixation.setLineColor(new util.Color(target_color), false);
     }
     
     // *dot1* updates
