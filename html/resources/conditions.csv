@@ -1,5 +1,5 @@
-﻿target_pos,odd_target_resp,odd_target_file,even_target_file,even_target_resp
-"[-0.33,0]",o,right_blue.png,right_orange.png,p
-"[0.33,0]",o,right_blue.png,right_orange.png,p
-"[-0.33,0]",w,left_blue.png,left_orange.png,q
-"[0.33,0]",w,left_blue.png,left_orange.png,q
+﻿target_pos,odd_target_resp,odd_target_file,even_target_file,even_target_resp,target_side
+"[-0.33,0]",o,right_blue.png,right_orange.png,p,left
+"[0.33,0]",o,right_blue.png,right_orange.png,p,right
+"[-0.33,0]",w,left_blue.png,left_orange.png,q,left
+"[0.33,0]",w,left_blue.png,left_orange.png,q,right
