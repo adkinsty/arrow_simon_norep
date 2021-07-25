@@ -98,7 +98,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val=".6" valType="num"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -295,7 +295,7 @@
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="&amp;#10;rt = trial_resp.rt;&amp;#10;if (((rt &gt;= 1.4) &amp;&amp; (rt &lt;= 1.6))) {&amp;#10;    too_slow = false;&amp;#10;    too_soon = false;&amp;#10;    if ((trial_resp.keys === target_resp)) {&amp;#10;        acc = 1;&amp;#10;        err = 0;&amp;#10;    } else {&amp;#10;        acc = 0;&amp;#10;        err = 1;&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((rt &gt; 1.6)) {&amp;#10;        too_slow = true;&amp;#10;        too_soon = false;&amp;#10;        acc = 0;&amp;#10;    } else {&amp;#10;        too_slow = false;&amp;#10;        too_soon = true;&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;}&amp;#10;accs += acc;&amp;#10;too_slows += too_slow;&amp;#10;too_soons += too_soon;&amp;#10;&amp;#10;if (too_slow) {&amp;#10;    feedback_test_msg = &quot;Too Slow&quot;;&amp;#10;    feedback_duration = .5;&amp;#10;    feedback_color = 'red';&amp;#10;} else {&amp;#10;    if (too_soon) {&amp;#10;        feedback_test_msg = &quot;Too Fast&quot;;&amp;#10;        feedback_duration = .5;&amp;#10;        feedback_color = 'red';&amp;#10;    } else {&amp;#10;        if ((trial_resp.corr != 1)) {&amp;#10;            feedback_test_msg = &quot;Wrong key&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'red'&amp;#10;        } else {&amp;#10;            feedback_test_msg = &quot;Perfect!&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'green';&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;trial_num = trial_num + 1;&amp;#10;&amp;#10;psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;psychoJS.experiment.addData('target_color', target_color)&amp;#10;psychoJS.experiment.addData('target_pos', target_pos)&amp;#10;psychoJS.experiment.addData('target_file', target_file)&amp;#10;psychoJS.experiment.addData('target_resp', target_resp)&amp;#10;psychoJS.experiment.addData('kerr', err)&amp;#10;psychoJS.experiment.addData('too_slow', too_slow)&amp;#10;psychoJS.experiment.addData('too_soon', too_soon)&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="&amp;#10;rt = trial_resp.rt;&amp;#10;if (((rt &gt;= 1.4) &amp;&amp; (rt &lt;= 1.6))) {&amp;#10;    too_slow = false;&amp;#10;    too_soon = false;&amp;#10;    if ((trial_resp.keys === target_resp)) {&amp;#10;        acc = 1;&amp;#10;        err = 0;&amp;#10;    } else {&amp;#10;        acc = 0;&amp;#10;        err = 1;&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((rt &gt; 1.6)) {&amp;#10;        too_slow = true;&amp;#10;        too_soon = false;&amp;#10;        acc = 0;&amp;#10;    } else {&amp;#10;        too_slow = false;&amp;#10;        too_soon = true;&amp;#10;        acc = 0;&amp;#10;    }&amp;#10;}&amp;#10;accs += acc;&amp;#10;too_slows += too_slow;&amp;#10;too_soons += too_soon;&amp;#10;&amp;#10;if (too_slow) {&amp;#10;    feedback_test_msg = &quot;Too Slow&quot;;&amp;#10;    feedback_duration = .5;&amp;#10;    feedback_color = 'red';&amp;#10;} else {&amp;#10;    if (too_soon) {&amp;#10;        feedback_test_msg = &quot;Too Fast&quot;;&amp;#10;        feedback_duration = .5;&amp;#10;        feedback_color = 'red';&amp;#10;    } else {&amp;#10;        if ((trial_resp.corr != 1)) {&amp;#10;            feedback_test_msg = &quot;Wrong key&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'red'&amp;#10;        } else {&amp;#10;            feedback_test_msg = &quot;Perfect!&quot;;&amp;#10;            feedback_duration = .5;&amp;#10;            feedback_color = 'green';&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;psychoJS.experiment.addData('trial_num', trial_num)&amp;#10;psychoJS.experiment.addData('target_onset', target_onset)&amp;#10;psychoJS.experiment.addData('target_color', target_color)&amp;#10;psychoJS.experiment.addData('target_pos', target_pos)&amp;#10;psychoJS.experiment.addData('target_file', target_file)&amp;#10;psychoJS.experiment.addData('target_resp', target_resp)&amp;#10;psychoJS.experiment.addData('kerr', err)&amp;#10;psychoJS.experiment.addData('too_slow', too_slow)&amp;#10;psychoJS.experiment.addData('too_soon', too_soon)&amp;#10;&amp;#10;&amp;#10;trial_num = trial_num + 1;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="trial_code" valType="code"/>
@@ -509,7 +509,7 @@
         <Param name="stopType" updates="None" val="time (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Nice job! Now you are about to begin a block of practice trials in a rapid response timing game. &amp;#10;&amp;#10;In this block, there are no colors that you need to respond to. Instead, in each trial you will see a black cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.&amp;#10;&amp;#10;Your new goal is to respond exactly when you see the WHITE DOT. &amp;#10;&amp;#10;You can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.&amp;#10;&amp;#10;We recommend that you switch between these practice your timing with all fingers.&amp;#10;&amp;#10;After each trial, you will get feedback about how you did. &amp;#10;&amp;#10;We will tell you if you were too slow or too fast. &amp;#10;&amp;#10;When you are ready to begin this block of practice trials, please press the SPACE BAR. " valType="str"/>
+        <Param name="text" updates="constant" val="Nice job! Now you are about to begin a block of practice trials in a rapid response timing game. &amp;#10;&amp;#10;In this block, there are no colors that you need to respond to. Instead, in each trial you will see a colored cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.&amp;#10;&amp;#10;Your new goal is to respond exactly when you see the WHITE DOT. &amp;#10;&amp;#10;You can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.&amp;#10;&amp;#10;We recommend that you switch from between using your middle and pointer fingers to prepare for the later test phase. The recomended finger will be displayed at the start of each trial. &amp;#10;&amp;#10;After each trial, you will get feedback about how you did. &amp;#10;&amp;#10;We will tell you if you were too slow or too fast. &amp;#10;&amp;#10;When you are ready to begin this block of practice trials, please press the SPACE BAR. " valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -552,7 +552,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val=".6" valType="num"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -648,15 +648,40 @@
       </CodeComponent>
     </Routine>
     <Routine name="trial_train_timing">
+      <TextComponent name="finger_timing">
+        <Param name="color" updates="constant" val="" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="num"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.02" valType="num"/>
+        <Param name="name" updates="None" val="finger_timing" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0,.05)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
       <PolygonComponent name="fixation_timing">
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$[-1,-1,-1]" valType="str"/>
+        <Param name="fillColor" updates="constant" val="" valType="str"/>
         <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$[-1,-1,-1]" valType="str"/>
+        <Param name="lineColor" updates="constant" val="" valType="str"/>
         <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="lineWidth" updates="constant" val="1" valType="code"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
@@ -805,15 +830,15 @@
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="timing_trial_num = 1;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="&amp;#10;if (timing_trial_num % 2 === 0) {&amp;#10;    target_color = color_orange;&amp;#10;    finger_text = 'MIDDLE';&amp;#10;} else {&amp;#10;    target_color = color_blue;&amp;#10;    finger_text = 'POINTER';&amp;#10;}&amp;#10;&amp;#10;finger_timing.setText(finger_text);&amp;#10;finger_timing.setColor(target_color);&amp;#10;fixation_timing.setLineColor(target_color);&amp;#10;fixation_timing.setFillColor(target_color);" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="rt = trial_resp_timing.rt;&amp;#10;if ((rt &lt; 2.4)) {&amp;#10;    feedback_msg = &quot;Too fast.&quot;;&amp;#10;    feedback_color = &quot;red&quot;;&amp;#10;} else {&amp;#10;    if ((rt &gt; 2.6)) {&amp;#10;        feedback_msg = &quot;Too slow.&quot;;&amp;#10;        feedback_color = &quot;red&quot;;&amp;#10;    } else {&amp;#10;        if (((rt &gt;= 2.4) &amp;&amp; (rt &lt;= 2.6))) {&amp;#10;            feedback_msg = &quot;Perfect timing!&quot;;&amp;#10;            feedback_color = &quot;green&quot;;&amp;#10;        } else {&amp;#10;            feedback_msg = &quot;No response.&quot;;&amp;#10;            feedback_color = &quot;red&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="rt = trial_resp_timing.rt;&amp;#10;if ((rt &lt; 2.4)) {&amp;#10;    feedback_msg = &quot;Too fast.&quot;;&amp;#10;    feedback_color = &quot;red&quot;;&amp;#10;} else {&amp;#10;    if ((rt &gt; 2.6)) {&amp;#10;        feedback_msg = &quot;Too slow.&quot;;&amp;#10;        feedback_color = &quot;red&quot;;&amp;#10;    } else {&amp;#10;        if (((rt &gt;= 2.4) &amp;&amp; (rt &lt;= 2.6))) {&amp;#10;            feedback_msg = &quot;Perfect timing!&quot;;&amp;#10;            feedback_color = &quot;green&quot;;&amp;#10;        } else {&amp;#10;            feedback_msg = &quot;No response.&quot;;&amp;#10;            feedback_color = &quot;red&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;&amp;#10;timing_trial_num += 1;" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="trial_code_timing" valType="code"/>
