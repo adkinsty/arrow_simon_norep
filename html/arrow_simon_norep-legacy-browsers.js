@@ -112,12 +112,14 @@ var instructions_timingClock;
 var instruct_text_timing;
 var instruct_resp_timing;
 var trial_train_timingClock;
+var finger_timing;
 var fixation_timing;
 var dot1_timing;
 var dot2_timing;
 var dot3_timing;
 var dot4_timing;
 var trial_resp_timing;
+var timing_trial_num;
 var feedback_timingClock;
 var feedback_text_timing;
 var instructionsClock;
@@ -252,7 +254,7 @@ function experimentInit() {
   instruct_text_timing = new visual.TextStim({
     win: psychoJS.window,
     name: 'instruct_text_timing',
-    text: 'Nice job! Now you are about to begin a block of practice trials in a rapid response timing game. \n\nIn this block, there are no colors that you need to respond to. Instead, in each trial you will see a black cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.\n\nYour new goal is to respond exactly when you see the WHITE DOT. \n\nYou can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.\n\nWe recommend that you switch between these practice your timing with all fingers.\n\nAfter each trial, you will get feedback about how you did. \n\nWe will tell you if you were too slow or too fast. \n\nWhen you are ready to begin this block of practice trials, please press the SPACE BAR. ',
+    text: 'Nice job! Now you are about to begin a block of practice trials in a rapid response timing game. \n\nIn this block, there are no colors that you need to respond to. Instead, in each trial you will see a colored cross in the center of the screen. Next, the cross will turn into a black dot that flashes three times. After the third flash, a WHITE DOT will appear at the center of the screen.\n\nYour new goal is to respond exactly when you see the WHITE DOT. \n\nYou can press the Q key with your left middle finger, the W key with your left pointer finger, the O key with your right pointer finger, or the P key with your right middle finger.\n\nWe recommend that you switch from between using your middle and pointer fingers to prepare for the later test phase. The recomended finger will be displayed at the start of each trial. \n\nAfter each trial, you will get feedback about how you did. \n\nWe will tell you if you were too slow or too fast. \n\nWhen you are ready to begin this block of practice trials, please press the SPACE BAR. ',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.02,  wrapWidth: undefined, ori: 0,
@@ -264,13 +266,24 @@ function experimentInit() {
   
   // Initialize components for Routine "trial_train_timing"
   trial_train_timingClock = new util.Clock();
+  finger_timing = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'finger_timing',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0.05], height: 0.02,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color(undefined),  opacity: undefined,
+    depth: 0.0 
+  });
+  
   fixation_timing = new visual.ShapeStim ({
     win: psychoJS.window, name: 'fixation_timing', 
     vertices: 'cross', size:[0.05, 0.05],
     ori: 0, pos: [0, 0],
-    lineWidth: 1, lineColor: new util.Color([(- 1), (- 1), (- 1)]),
-    fillColor: new util.Color([(- 1), (- 1), (- 1)]),
-    opacity: 1, depth: 0, interpolate: true,
+    lineWidth: 1, lineColor: new util.Color(undefined),
+    fillColor: new util.Color(undefined),
+    opacity: 1, depth: -1, interpolate: true,
   });
   
   dot1_timing = new visual.Polygon ({
@@ -279,7 +292,7 @@ function experimentInit() {
     ori: 0, pos: [0, 0],
     lineWidth: 1, lineColor: new util.Color([(- 1), (- 1), (- 1)]),
     fillColor: new util.Color([(- 1), (- 1), (- 1)]),
-    opacity: 1, depth: -1, interpolate: true,
+    opacity: 1, depth: -2, interpolate: true,
   });
   
   dot2_timing = new visual.Polygon ({
@@ -288,7 +301,7 @@ function experimentInit() {
     ori: 0, pos: [0, 0],
     lineWidth: 1, lineColor: new util.Color([(- 1), (- 1), (- 1)]),
     fillColor: new util.Color([(- 1), (- 1), (- 1)]),
-    opacity: 1, depth: -2, interpolate: true,
+    opacity: 1, depth: -3, interpolate: true,
   });
   
   dot3_timing = new visual.Polygon ({
@@ -297,7 +310,7 @@ function experimentInit() {
     ori: 0, pos: [0, 0],
     lineWidth: 1, lineColor: new util.Color([(- 1), (- 1), (- 1)]),
     fillColor: new util.Color([(- 1), (- 1), (- 1)]),
-    opacity: 1, depth: -3, interpolate: true,
+    opacity: 1, depth: -4, interpolate: true,
   });
   
   dot4_timing = new visual.Polygon ({
@@ -306,11 +319,12 @@ function experimentInit() {
     ori: 0, pos: [0, 0],
     lineWidth: 1, lineColor: new util.Color([1, 1, 1]),
     fillColor: new util.Color([1, 1, 1]),
-    opacity: 1, depth: -4, interpolate: true,
+    opacity: 1, depth: -5, interpolate: true,
   });
   
   trial_resp_timing = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  timing_trial_num = 1;
   // Initialize components for Routine "feedback_timing"
   feedback_timingClock = new util.Clock();
   feedback_text_timing = new visual.TextStim({
@@ -876,10 +890,6 @@ function trial_train_simonRoutineEachFrame(snapshot) {
       train_trial_finger.setAutoDraw(true);
     }
 
-    frameRemains = 0.0 + 0.6 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
-    if (train_trial_finger.status === PsychoJS.Status.STARTED && t >= frameRemains) {
-      train_trial_finger.setAutoDraw(false);
-    }
     
     // *fixation_simon* updates
     if (t >= 0 && fixation_simon.status === PsychoJS.Status.NOT_STARTED) {
@@ -1393,8 +1403,22 @@ function trial_train_timingRoutineBegin(snapshot) {
     trial_resp_timing.keys = undefined;
     trial_resp_timing.rt = undefined;
     _trial_resp_timing_allKeys = [];
+    
+    if (timing_trial_num % 2 === 0) {
+        target_color = color_orange;
+        finger_text = 'MIDDLE';
+    } else {
+        target_color = color_blue;
+        finger_text = 'POINTER';
+    }
+    
+    finger_timing.setText(finger_text);
+    finger_timing.setColor(target_color);
+    fixation_timing.setLineColor(target_color);
+    fixation_timing.setFillColor(target_color);
     // keep track of which components have finished
     trial_train_timingComponents = [];
+    trial_train_timingComponents.push(finger_timing);
     trial_train_timingComponents.push(fixation_timing);
     trial_train_timingComponents.push(dot1_timing);
     trial_train_timingComponents.push(dot2_timing);
@@ -1418,6 +1442,16 @@ function trial_train_timingRoutineEachFrame(snapshot) {
     t = trial_train_timingClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    
+    // *finger_timing* updates
+    if (t >= 0.0 && finger_timing.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      finger_timing.tStart = t;  // (not accounting for frame time here)
+      finger_timing.frameNStart = frameN;  // exact frame index
+      
+      finger_timing.setAutoDraw(true);
+    }
+
     
     // *fixation_timing* updates
     if (t >= 0.0 && fixation_timing.status === PsychoJS.Status.NOT_STARTED) {
@@ -1570,6 +1604,8 @@ function trial_train_timingRoutineEnd(snapshot) {
         }
     }
     
+    
+    timing_trial_num += 1;
     // the Routine "trial_train_timing" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -1868,10 +1904,6 @@ function trialRoutineEachFrame(snapshot) {
       trial_finger.setAutoDraw(true);
     }
 
-    frameRemains = 0.0 + 0.6 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
-    if (trial_finger.status === PsychoJS.Status.STARTED && t >= frameRemains) {
-      trial_finger.setAutoDraw(false);
-    }
     
     // *fixation* updates
     if (t >= 0 && fixation.status === PsychoJS.Status.NOT_STARTED) {
@@ -2084,8 +2116,7 @@ function trialRoutineEnd(snapshot) {
         }
     }
     
-    trial_num = trial_num + 1;
-    
+    psychoJS.experiment.addData('trial_num', trial_num)
     psychoJS.experiment.addData('target_onset', target_onset)
     psychoJS.experiment.addData('target_color', target_color)
     psychoJS.experiment.addData('target_pos', target_pos)
@@ -2096,6 +2127,7 @@ function trialRoutineEnd(snapshot) {
     psychoJS.experiment.addData('too_soon', too_soon)
     
     
+    trial_num = trial_num + 1;
     
     
     
